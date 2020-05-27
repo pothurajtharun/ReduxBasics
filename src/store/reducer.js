@@ -1,49 +1,37 @@
 const initialState = {
-    counter: 0
+    counter: 0,
+    results: []
 }
 
 //Reducer
 const reducer = (state = initialState, action) => {
-switch(action.type){
-    case 'INCREMENT':
-        return {
-            counter: state.counter+1
-        }
-    case 'DECREMENT':
-        return {
-            counter: state.counter-1
-        }
-    case 'ADD_5':
-        return {
-            counter: state.counter+action.value
-        }
-    case 'SUB_5':
-        return {
-            counter: state.counter-action.value
-        }
-
-}
-    // if(action.type === 'INCREMENT'){
-    //     return {
-    //         counter: state.counter+1
-    //     }
-    // };
-    // if(action.type === 'DECREMENT'){
-    //     return {
-    //         counter: state.counter-1
-    //     }
-    // };
-    // if(action.type === 'ADD_5'){
-    //     return {
-    //         counter: state.counter+action.value
-    //     }
-    // };
-    // if(action.type === 'SUB_5'){
-    //     return {
-    //         counter: state.counter-action.value
-    //     }
-    // };
+    switch (action.type) {
+        case 'INCREMENT':
+            const newState = Object.assign({}, state);
+            newState.counter = state.counter + 1;
+            return newState;
+        case 'DECREMENT':
+            return {
+                ...state,
+                counter: state.counter - 1
+            }
+        case 'ADD_5':
+            return {
+                ...state,
+                counter: state.counter + action.value
+            }
+        case 'SUB_5':
+            return {
+                ...state,
+                counter: state.counter - action.value
+            }
+        case 'STORED_RESULT':
+            return {
+                ...state,
+                results: state.results.concat({ id: new Date(), value: state.counter })
+            }
+    }
     return state;
-}
+};
 
 export default reducer;
