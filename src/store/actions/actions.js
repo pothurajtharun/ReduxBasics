@@ -28,11 +28,20 @@ export const subtract = (val)=>{
         value: val
     }
 };
-export const storedResult = (res)=>{
+
+export const savedResult = (res) =>{
     return{
         type: STORED_RESULT,
         result: res
     }
+}
+export const storedResult = (res)=>{
+    //Asynchronous code.
+   return dispath => {
+       setTimeout(() => {
+           dispath(savedResult(res))
+       }, 2000)
+   }
 };
 export const deleteResult = (resId)=>{
     return{
