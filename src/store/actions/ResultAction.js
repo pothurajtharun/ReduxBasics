@@ -9,8 +9,10 @@ export const savedResult = (res) =>{
 }
 export const storedResult = (res)=>{
     //Asynchronous code.
-   return dispath => {
+   return (dispath, getState) => {
        setTimeout(() => {
+        //    const oldCounter =  getState().ctr.counter;
+        //    console.log(oldCounter)
            dispath(savedResult(res))
        }, 2000)
    }
