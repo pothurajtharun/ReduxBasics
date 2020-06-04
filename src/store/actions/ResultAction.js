@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 export const savedResult = (res) =>{
+    // const updatedResult = res*2;
     return{
         type: actionTypes.STORED_RESULT,
         result: res
