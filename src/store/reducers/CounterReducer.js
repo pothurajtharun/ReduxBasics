@@ -7,14 +7,10 @@ const initialState = {
 //Reducer
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.INCREMENT:
-            return updatedObject(state, {counter: state.counter + 1});
-        case actionTypes.DECREMENT:
-            return updatedObject(state, { counter: state.counter - 1})
-        case actionTypes.ADD:
-            return updatedObject(state, {counter: state.counter + action.value})
-        case actionTypes.SUBSTRACT:
-            return updatedObject(state, {counter: state.counter - action.value})
+        case actionTypes.INCREMENT: return updatedObject(state, {counter: state.counter + 1});
+        case actionTypes.DECREMENT: return updatedObject(state, { counter: state.counter - 1});
+        case actionTypes.ADD: return updatedObject(state, {counter: state.counter + action.value});
+        case actionTypes.SUBSTRACT: return updatedObject(state, {counter: state.counter - action.value});
     }
     return state;
 };
